@@ -62,6 +62,7 @@ class AddSchedules extends Component {
         <h4> Select the periods you have free:</h4>
         {daysList}
         {boxes}
+      <button> Set my schedule</button>
       <p> My free periods are:
       {this.state.myFrees}
       <CheckSchedules freePeriods = {this.state.myFrees}/>
