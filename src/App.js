@@ -43,7 +43,7 @@ class AddSchedules extends Component {
             {
               day.map((period,pidx) =>{
                 const addFree = (evt) => {
-                  if ()
+                  
                   this.addFree(pidx, didx)
                 }
                 return <span className="allboxes"> <input type="checkbox" className="boxes" onChange={addFree}/> </span>
@@ -76,10 +76,10 @@ class CheckSchedules extends Component {
   constructor(props){
     super(props);
     this.state = {
-      me: {
-        name: "Kara",
-        freePeriods: ["m3", "m7", "t1", "w4", "th2", "th6"],
-      },
+      // me: {
+      //   name: "Kara",
+      //   freePeriods: ["m3", "m7", "t1", "w4", "th2", "th6"],
+      // },
       otherStudents: [
       {
         name: "Leyla",
@@ -102,16 +102,22 @@ pickPerson = (evt) => {
 }
 
 compare = () => {
-  let mySchedule = this.state.me;
+  let mySchedule = this.props.freePeriods;
   let friendSchedule = this.state.otherStudents;
   let common=[];
-     for (let i = 0; i < mySchedule.freePeriods.length; i++) { 
+    if (this.state.personCompare==="noPerson"){
+      common=[]
+    }
+
+    else{
+      for (let i = 0; i < mySchedule.freePeriods.length; i++) { 
         for (let j = 0; j < friendSchedule[this.state.personCompare].freePeriods.length; j++) { 
           if (mySchedule.freePeriods[i]===friendSchedule[this.state.personCompare].freePeriods[j]){
             common.push(mySchedule.freePeriods[i]);
           }
         }
      }
+    }
   this.setState({
     commonPeriods: common,
   })
@@ -130,7 +136,7 @@ compare = () => {
     return(
       <div className="compare-area">
         <select onChange={this.pickPerson}>
-          <option> Choose a person... </option>
+          <option value="noPerson"> Choose a person... </option>
           {dropdown} 
         </select>
         <button type="button" className="compare-button" onClick={this.compare}>Compare Schedules</button>
