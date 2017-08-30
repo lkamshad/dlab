@@ -25,7 +25,6 @@ class AddSchedules extends Component {
   }
 }
 
-
 class CheckSchedules extends Component {
   render(){
     return(
