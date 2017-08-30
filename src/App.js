@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
+import CommonPeriods from './commonPeriods';
 
 class App extends Component {
   render() {
@@ -76,31 +77,38 @@ class CheckSchedules extends Component {
         name: "Kara",
         freePeriods: ["m3", "m7", "t1", "w4", "th2", "th6"],
       },
-      otherStudents: [{
+      otherStudents: [
+      {
         name: "Leyla",
         freePeriods: ["m3", "m7", "t3", "t6", "w4", "th2", "th7"],
-      }],
-      commonPeriods: [""]
+      },
+      {
+        name: "Abby",
+        freePeriods: ["m6", "t1", "t7", "w3", "th2"]
+      },
+      ],
+      commonPeriods: [],
+      personCompare: 0,
     }
   }
+
+pickPerson = (evt) => {
+  this.setState({
+    personCompare: evt.target.value,
+  });
+}
 
 compare = () => {
   let mySchedule = this.state.me;
   let friendSchedule = this.state.otherStudents;
   let common=[];
-  // for (let i = 0; i < mySchedule.length; i++) { 
-  //   for (let j = 0; j < friendSchedule.length; j++) { 
-  console.log(mySchedule)
-  console.log(friendSchedule)
-  if (mySchedule.freePeriods[0]===friendSchedule[0].freePeriods[0]){
-    common.push("hello");
-    console.log("hello")
-  }
-  else{
-    console.log("bye")
-  }
-    //   }
-    // }
+     for (let i = 0; i < mySchedule.freePeriods.length; i++) { 
+        for (let j = 0; j < friendSchedule[this.state.personCompare].freePeriods.length; j++) { 
+          if (mySchedule.freePeriods[i]===friendSchedule[this.state.personCompare].freePeriods[j]){
+            common.push(mySchedule.freePeriods[i]);
+          }
+        }
+     }
   this.setState({
     commonPeriods: common,
   })
@@ -108,10 +116,23 @@ compare = () => {
 }
 
   render(){
+    let periods = this.state.commonPeriods.map((period) => {
+      return <div> {period} </div>
+    })
+
+    let dropdown = this.state.otherStudents.map((person, idx) => {
+      return <option value={idx}>{person.name}</option>
+    })
+    console.log(dropdown)
     return(
       <div className="compare-area">
+        <select onChange={this.pickPerson}>
+          <option> Choose a person... </option>
+          {dropdown} 
+        </select>
         <button type="button" className="compare-button" onClick={this.compare}>Compare Schedules</button>
-        <div>{this.state.commonPeriods}</div>
+        <div> Your Common Periods: </div>
+        <CommonPeriods periods={periods}/>  
       </div>
       );
   }
