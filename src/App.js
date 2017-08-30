@@ -43,7 +43,7 @@ class AddSchedules extends Component {
             {
               day.map((period,pidx) =>{
                 const addFree = (evt) => {
-                  if ()
+                  
                   this.addFree(pidx, didx)
                 }
                 return <span className="allboxes"> <input type="checkbox" className="boxes" onChange={addFree}/> </span>
@@ -101,7 +101,7 @@ pickPerson = (evt) => {
 }
 
 compare = () => {
-  let mySchedule = {this.props.freePeriods};
+  let mySchedule = this.props.freePeriods;
   let friendSchedule = this.state.otherStudents;
   let common=[];
     if (this.state.personCompare==="noPerson"){
