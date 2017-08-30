@@ -42,7 +42,8 @@ class AddSchedules extends Component {
           <div> 
             {
               day.map((period,pidx) =>{
-                const addFree = () => {
+                const addFree = (evt) => {
+                  if ()
                   this.addFree(pidx, didx)
                 }
                 return <span className="allboxes"> <input type="checkbox" className="boxes" onChange={addFree}/> </span>
@@ -63,6 +64,7 @@ class AddSchedules extends Component {
         {boxes}
       <p> My free periods are:
       {this.state.myFrees}
+      <CheckSchedules freePeriods = {this.state.myFrees}/>
       </p>
       </div>
     );
