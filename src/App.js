@@ -2,7 +2,22 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import {
+  SERVER_URL,
+  fetchJSON,
+} from './fetchAPI';
+
+
 class App extends Component {
+  constructor(props) {
+    super(props);
+
+    fetch(SERVER_URL + '/');
+
+    // perhaps put more requests here
+
+  }
+
   render() {
     return (
       <div className="App">

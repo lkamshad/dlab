@@ -1,0 +1,27 @@
+Challenge 0
+-----------
+Print a message (like "sup pal! the root route was requested!") to the server console whenever the '/' route is requested.
+
+Challenge 1
+-----------
+Send a string from the client to the server for the server to print to its console.
+HINT: use a URL parameter by defining a path like '/message/:text' and then accessing the parameter with req.params.text
+(as documented at http://expressjs.com/en/api.html#req.params)
+
+Challenge 2
+-----------
+Send a string from the server to the client for the client to print to its console.
+HINT: use res.json
+(as documented at http://expressjs.com/en/api.html#res.json)
+
+Challenge 3
+-----------
+On the client, make the URL request occur from a button click instead of when the component loads
+
+Challenge 4
+-----------
+On the client, make the button click request the DATA array from the server, and set the data to a state variable
+
+Challenge 5
+-----------
+Write a handler that modifies DATA (like it's a database) and call it from the client on a button click
