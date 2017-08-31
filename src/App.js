@@ -28,6 +28,8 @@ class AddSchedules extends Component {
       name: '',
       freePeriods: '',
     },
+    text: '',
+    myName: '',
   }
 
   addFree = (pidx, didx) => {
@@ -42,13 +44,25 @@ class AddSchedules extends Component {
 
   setSchedule = () => {
     let me = {
-      name: '',
+      name: this.state.myName,
       freePeriods: this.state.myFrees,
     }
     this.setState({
       Profile: me,
     })
   }
+
+takeText = (evt) =>{
+  this.setState({
+    text: evt.target.value
+  })
+} 
+
+submit = () => {
+  this.setState({
+    myName: this.state.text,
+  })
+}
 
   render() {
     let boxes = this.state.array.map((day, didx) =>{
@@ -74,14 +88,16 @@ class AddSchedules extends Component {
       
         <div>
         <h4> Enter your name </h4>
-        <input /> 
-        <button> Submit</button>
+        <input onChange={this.takeText}/> 
+        <button onClick={this.submit}> Submit</button>
         <h4> Select the periods you have free:</h4>
         {daysList}
         {boxes}
+        
+        <p> My free periods are:
+        {this.state.myFrees}
+
       <button onClick={this.setSchedule}> Set my schedule</button>
-      <p> My free periods are:
-      {this.state.myFrees}
 
       <CheckSchedules me = {this.state.Profile}/>
       </p>
