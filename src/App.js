@@ -11,7 +11,7 @@ class App extends Component {
           <img src="https://yt3.ggpht.com/-P5IDP8hegLs/AAAAAAAAAAI/AAAAAAAAAAA/ycziqsJrZZM/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" className="App-logo" />
           <h2>Welcome to D-Lab</h2>
         </div>
-        <AddSchedules />
+        <AddSchedules/>
       </div>
     )
   }
@@ -31,14 +31,23 @@ class AddSchedules extends Component {
     myName: '',
   }
 
-  addFree = (pidx, didx) => {
-     let frees = [...this.state.myFrees]
+  addFree = (pidx, didx, isChecked) => {
+    let frees = [...this.state.myFrees]
      let x = this.state.array[didx][pidx]
-     frees.push(x)
-
+    if (isChecked){
+           frees.push(x)
         this.setState({
           myFrees: frees,
         })
+    }else if (!isChecked){
+      let newfrees = frees.filter ((i) => {
+        return i!==x
+      })
+      this.setState({
+        myFrees: newfrees,
+      })
+
+    }
   }
 
   setSchedule = () => {
@@ -70,8 +79,8 @@ submit = () => {
             {
               day.map((period,pidx) =>{
                 const addFree = (evt) => {
-                  
-                  this.addFree(pidx, didx)
+                 const isChecked = evt.target.checked;
+                  this.addFree(pidx, didx, isChecked)
                 }
                 return <span className="allboxes"> <input type="checkbox" className="boxes" onChange={addFree}/> </span>
               })
@@ -85,7 +94,7 @@ submit = () => {
     })
     return(
       
-        <div>
+        <div className= "main">
         <h4> Enter your name </h4>
         <input onChange={this.takeText}/> 
         <button onClick={this.submit}> Submit</button>
@@ -93,9 +102,10 @@ submit = () => {
         {daysList}
         {boxes}
         {this.state.myName}
+
         <p> My free periods are:
         {this.state.myFrees}
-
+        <br/>
       <button onClick={this.setSchedule}> Set my schedule</button>
 
       <CheckSchedules me = {this.state.Profile}/>
