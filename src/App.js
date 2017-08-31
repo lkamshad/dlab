@@ -26,7 +26,7 @@ class AddSchedules extends Component {
     newFree: '',
     Profile: {
       name: '',
-      frees: '',
+      freePeriods: '',
     },
   }
 
@@ -43,7 +43,7 @@ class AddSchedules extends Component {
   setSchedule = () => {
     let me = {
       name: '',
-      frees: this.state.myFrees,
+      freePeriods: this.state.myFrees,
     }
     this.setState({
       Profile: me,
