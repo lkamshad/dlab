@@ -19,6 +19,8 @@
 
 .boxes {
   margin: 30px;
+  padding: 20px;
+  background-color: white;
 }
 
 .day-names {

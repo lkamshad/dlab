@@ -82,7 +82,7 @@ submit = () => {
                  const isChecked = evt.target.checked;
                   this.addFree(pidx, didx, isChecked)
                 }
-                return <span className="allboxes"> <input type="checkbox" className="boxes" onChange={addFree}/> </span>
+                return <span> <input type="checkbox" className="boxes" onChange={addFree}/> </span>
               })
             }
           </div>
@@ -100,7 +100,9 @@ submit = () => {
         <button onClick={this.submit}> Submit</button>
         <h4> Select the periods you have free:</h4>
         {daysList}
+        <div className="allboxes">
         {boxes}
+        </div>
         {this.state.myName}
 
         <p> My free periods are:
