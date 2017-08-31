@@ -26,7 +26,7 @@ class AddSchedules extends Component {
     newFree: '',
     Profile: {
       name: '',
-      frees: '',
+      freePeriods: '',
     },
   }
 
@@ -43,7 +43,7 @@ class AddSchedules extends Component {
   setSchedule = () => {
     let me = {
       name: '',
-      frees: this.state.myFrees,
+      freePeriods: this.state.myFrees,
     }
     this.setState({
       Profile: me,
@@ -82,6 +82,7 @@ class AddSchedules extends Component {
       <button onClick={this.setSchedule}> Set my schedule</button>
       <p> My free periods are:
       {this.state.myFrees}
+
       <CheckSchedules me = {this.state.Profile}/>
       </p>
       </div>
@@ -119,7 +120,7 @@ pickPerson = (evt) => {
 }
 
 compare = () => {
-  let mySchedule = this.props.freePeriods;
+  let mySchedule = this.props.me;
   let friendSchedule = this.state.otherStudents;
   let common=[];
     if (this.state.personCompare==="noPerson"){
