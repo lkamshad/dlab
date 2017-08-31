@@ -93,7 +93,7 @@ submit = () => {
         <h4> Select the periods you have free:</h4>
         {daysList}
         {boxes}
-
+        {this.state.myName}
         <p> My free periods are:
         {this.state.myFrees}
 
