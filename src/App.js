@@ -12,7 +12,6 @@ class App extends Component {
           <h2>Welcome to D-Lab</h2>
         </div>
         <AddSchedules />
-        <CheckSchedules />
       </div>
     )
   }
