@@ -24,6 +24,10 @@ class AddSchedules extends Component {
     array: [['m1','t1','w1','th1','f1',],['m2','t2','w2','th2','f2',],['m3','t3','w3','th3','f3',],['m4','t4','w4','th4','f4',],['m5','t5','w5','th5','f5',], ['m6','t6','w6','th6','f6',],['m7','t7','w7','th7','f7',],],
     myFrees: [],
     newFree: '',
+    Profile: {
+      name: '',
+      frees: '',
+    },
   }
 
   addFree = (pidx, didx) => {
@@ -34,6 +38,16 @@ class AddSchedules extends Component {
         this.setState({
           myFrees: frees,
         })
+  }
+
+  setSchedule = () => {
+    let me = {
+      name: '',
+      frees: this.state.myFrees,
+    }
+    this.setState({
+      Profile: me,
+    })
   }
 
   render() {
@@ -62,9 +76,11 @@ class AddSchedules extends Component {
         <h4> Select the periods you have free:</h4>
         {daysList}
         {boxes}
+      <button onClick={this.setSchedule}> Set my schedule</button>
       <p> My free periods are:
       {this.state.myFrees}
-      <CheckSchedules freePeriods={this.state.myFrees}/>
+
+      <CheckSchedules me = {this.state.Profile}/>
       </p>
       </div>
     );
