@@ -73,6 +73,9 @@ class AddSchedules extends Component {
     return(
       
         <div>
+        <h4> Enter your name </h4>
+        <input /> 
+        <button> Submit</button>
         <h4> Select the periods you have free:</h4>
         {daysList}
         {boxes}
