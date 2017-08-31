@@ -8,7 +8,7 @@ class App extends Component {
     return (
       <div className="App">
         <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img src="https://yt3.ggpht.com/-P5IDP8hegLs/AAAAAAAAAAI/AAAAAAAAAAA/ycziqsJrZZM/s900-c-k-no-mo-rj-c0xffffff/photo.jpg" className="App-logo" />
           <h2>Welcome to D-Lab</h2>
         </div>
         <AddSchedules />
@@ -93,7 +93,7 @@ submit = () => {
         <h4> Select the periods you have free:</h4>
         {daysList}
         {boxes}
-        
+
         <p> My free periods are:
         {this.state.myFrees}
 
