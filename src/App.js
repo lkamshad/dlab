@@ -64,7 +64,7 @@ class AddSchedules extends Component {
         {boxes}
       <p> My free periods are:
       {this.state.myFrees}
-      <CheckSchedules freePeriods = {this.state.myFrees}/>
+      <CheckSchedules freePeriods={this.state.myFrees}/>
       </p>
       </div>
     );
@@ -101,7 +101,7 @@ pickPerson = (evt) => {
 }
 
 compare = () => {
-  let mySchedule = this.props.freePeriods;
+  let mySchedule = this.props.me;
   let friendSchedule = this.state.otherStudents;
   let common=[];
     if (this.state.personCompare==="noPerson"){
