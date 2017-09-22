@@ -10,7 +10,7 @@ const DATA = [
 // create the server
 const app = express();
 
-// ignore this for now, just need it to not error in development (i.e. using localhost)
+// ignore this for now, just need it in order to not error in development (i.e. using localhost)
 app.use((req, res, next) => {
   res.header('Access-Control-Allow-Origin', 'http://localhost:3000');
   next();
@@ -22,7 +22,9 @@ app.get('/', (req, res) => {
   res.send('Hello World!');
 });
 
-// tell the server you created to start accepting requests from clients
+// TODO: Add more more handlers here
+
+// have the server you created start accepting requests from clients
 app.listen(9000, () => {
   console.log(`Listening on port 9000...`);
 });

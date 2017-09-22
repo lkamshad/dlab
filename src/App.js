@@ -9,12 +9,18 @@ import {
 
 
 class App extends Component {
+
+  // this constructor runs when the page loads
   constructor(props) {
     super(props);
 
+    // request the '/' route
+    // see the server's handler for this route in server/index.js
     fetch(SERVER_URL + '/');
 
-    // perhaps put more requests here
+    // TODO: Perhaps put more requests here
+    //       Use fetchJSON instead of fetch if the server's response uses res.json({someKey: 'some value'})
+    //       See an example of using fetchJSON in the file it's defined in: src/fetchAPI.js
 
   }
 

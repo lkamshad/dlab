@@ -1,17 +1,18 @@
 Challenge 0
 -----------
-Print a message (like "sup pal! the root route was requested!") to the server console whenever the '/' route is requested.
+Console log a message (like "a request was made!") to the server console whenever the '/' route is requested.
+See the message logged in your Terminal tab running the server.
 
 Challenge 1
 -----------
 Send a string from the client to the server for the server to print to its console.
-HINT: use a URL parameter by defining a path like '/message/:text' and then accessing the parameter with req.params.text
+HINT: use a URL parameter by defining a route like '/message/:text' and then accessing the parameter with req.params.text
 (as documented at http://expressjs.com/en/api.html#req.params)
 
 Challenge 2
 -----------
 Send a string from the server to the client for the client to print to its console.
-HINT: use res.json
+HINT: use res.json, like, return res.json({something: 'Oh hey'})
 (as documented at http://expressjs.com/en/api.html#res.json)
 
 Challenge 3

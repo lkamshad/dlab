@@ -13,8 +13,10 @@
     })
 */
 
+// don't worry about how fetchJSON is implemented below. see an example of how to use fetchJSON in the comment above.
 export const fetchJSON = (...args) => {
   return fetch(...args).then(resp => resp.json());
 }
+
 
 export const SERVER_URL = 'http://localhost:9000';
